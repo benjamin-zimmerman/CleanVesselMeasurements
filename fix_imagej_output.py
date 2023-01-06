@@ -40,7 +40,7 @@ def analyzeFile():
     #Then delete all rows where the value is greater than or equal to the current row value until you reach the new row index
     cullable_indices = []
     for i in range(0,len(df_clean)-1):
-        if df_clean.Slice[i] > df_clean.Slice[i+1]:
+        if df_clean.Slice[i] >= df_clean.Slice[i+1]:
             critical_slice = df_clean.Slice[i+1]
             for j in range(0,i+1):
                 if df_clean.Slice[j] >= df_clean.Slice[i+1]:
