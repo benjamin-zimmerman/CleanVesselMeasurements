@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 import pandas as pd
 import os
+pd.options.mode.chained_assignment = None # default='warn'
 
 
 def insertRow(row_number, df, row_value):
@@ -32,6 +33,7 @@ def analyzeFile():
     df = pd.read_csv(filepath)
     
     # Clean the data output to include only slice and length 
+    
     df_clean = df[['Slice','Length']]
   
     
@@ -74,9 +76,12 @@ def analyzeFile():
     outputname = basename+"_cleaned.csv"
     output_path = output_directory + "//" + outputname
     df_cleaner.to_csv(output_path, encoding='utf-8')
+
+    print("Finished Processing File")
     
     # DESTROY THE SELECTION BUTTON
-    window.destroy()
+    # window.destroy()
+
             
     
 if __name__ == '__main__':
